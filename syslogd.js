@@ -1,6 +1,7 @@
 var config = {
 	end:"\n",
-	folder:__dirname
+	folder:__dirname,
+	port: 514
 }
 
 var dgram = require("dgram");
@@ -58,5 +59,5 @@ server6.on("listening", function () {
       address.address + ":" + address.port);
 });
 
-server4.bind(514);
-server6.bind(514);
+server4.bind(config.port);
+server6.bind(config.port);
