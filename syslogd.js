@@ -1,7 +1,7 @@
 var config = {
 	end:"\n",
 	folder:__dirname,
-	port: 514
+	port: 1514
 }
 
 var dgram = require("dgram");
@@ -55,6 +55,17 @@ server6.on("listening", function () {
   console.log("server listening " +
       address.address + ":" + address.port);
 });
+
+var socketErrorHandler = function(exception) {
+  console.error("A Socketerror occured!");
+  if (config.port < 1024) {
+    console.warn('Your port ist set lower than 1024, maybe you are not privileged to use it.');
+  }
+  console.warn(exception);
+};
+
+server4.on('error', socketErrorHandler);
+server6.on('error', socketErrorHandler);
 
 server4.bind(config.port);
 server6.bind(config.port);
