@@ -34,7 +34,7 @@ server6.on("message", function (msg, rinfo) {
 	fs.appendFileSync(config.folder + "\\" + ip + "\\" + ip + "_" + formatDate() + ".txt", msg + config.end);
 });
 
-var formatDate function(date) {
+var formatDate = function(date) {
   var now = date || (new Date());
 	var YY = now.getFullYear();
 	var MM = (now.getMonth() + 1);
