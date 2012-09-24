@@ -4,7 +4,7 @@
 var config = {
 	end:"\n",
 	folder:__dirname,
-	port: 1514
+	port: 514
 }
 
 var dgram = require("dgram");
